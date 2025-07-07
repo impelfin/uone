@@ -141,11 +141,33 @@ $ exit
 
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-$ source ~/.bashrc
+# source ~/.bashrc
 
-$ nvm --version
+# nvm --version
 
-$ nvm ls-remote
+# nvm ls-remote
 
-$ nvm install v22.17.0  
+# nvm install v22.17.0  
+
+# node -v
+v22.17
+
+
+## /nodejs/hello/app.js
+var express = require('express')
+var app = express()
+
+app.get('/', function (req, res){
+    res.send('Hello NodeJS!!')
+})
+
+app.listen(8000, function(){
+    console.log('8000 Port : Server Started!!')
+})
+
+
+## aws ec2
+
+# git clone http://github.com/impelfin/uone
+
 
