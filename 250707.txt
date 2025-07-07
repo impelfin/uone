@@ -314,10 +314,10 @@ jobs:
       - name: executing remote ssh commands using password using ssh-actions
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: {{ secrets.HOST }}
-          usetname: {{ secrets.USERNAME }}
-          key: {{ secrets.KEY }}
-          port: {{ secrets.PORT }}
+          host: ${{ secrets.HOST }}
+          usetname: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
             ./deploy.sh 
             
