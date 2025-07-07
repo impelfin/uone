@@ -245,5 +245,55 @@ jobs:
 
 # git config --global user.email impelfin@gmail.com
 
+Github -> Repo -> Settings -> Secrets and Variables -> Actions
+
+HOST : EC2 ip
+USERNAME : root
+KEY: 본인의 pem 키 복사
+PORT : 22
+
+# mkdir deploy
+
+# cd deploy/
+
+# cp -r /root/uone/nodejs/hello/ .
+
+# cd hello/
+
+# pm2 start app.js
+
+---------------------------------------------
+
+## deploy.sh
+
+#!/bin/bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use node
+
+cd /root/uone
+
+git pull;
+
+SRC=/root/uone/nodejs/hello
+DEST=$HOME/deploy
+
+rm -rf $DEST
+mkdir -p $DEST
+cp -r $SRC $DEST
+
+cd $DEST/hello
+source ~/.bashrc
+
+npm install
+
+npm install -g pm2
+
+pm2 restart all
+
+
+
+
 
 
