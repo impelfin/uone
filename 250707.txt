@@ -293,6 +293,14 @@ npm install -g pm2
 pm2 restart all
 
 
+# cd
+
+# cp uone/deploy.sh  .
+
+# chmod +x *.sh
+
+# ./deploy.sh
+
 
 
 
