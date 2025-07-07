@@ -136,4 +136,16 @@ $ cp /etc/skel/.exrc .
 
 $ source .bashrc
 
+$ exit
+
+
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+$ source ~/.bashrc
+
+$ nvm --version
+
+$ nvm ls-remote
+
+$ nvm install v22.17.0  
 
