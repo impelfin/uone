@@ -1,0 +1,139 @@
+## Microsoft store
+- Ubuntu 24.04.1 LTS
+- Windows Terminal
+
+## windows terminal에서.
+
+wsl --install
+
+Create a default Unix user account: ubuntu
+New password: 1234
+Retype new password: 1234
+
+$ exit
+
+$ wsl
+
+$ sudo passwd root
+[sudo] password for ubuntu: 1234
+New password: 1234
+Retype new password:1234
+passwd: password updated successfully
+
+
+EC2 -> 인스턴스 생성 -> 
+이름 및 태그 : ubuntu
+Amazon Machine Image(AMI) : 24.04
+새 키 페어 생성 ->
+스토리지 구성 30GB ->
+인스턴스 시작
+
+54.180.99.246
+
+보안 그룹
+
+3000
+3306
+27017
+8000
+8080
+
+----------------------------
+## wsl
+$ mkdir .ssh
+$ cd .ssh
+
+# aws ec2
+Host myu
+        Hostname 54.180.99.246
+        User ubuntu
+        IdentityFile ~/.ssh/moon.pem      
+
+$ cp /mnt/c/Users/USER/Desktop/moon/moon.pem .
+
+$ cp -r .ssh ~
+
+$ cp ~/.ssh
+
+$ chmod 600 moon.pem
+
+$ ssh myu
+
+$ sudo passwd root
+New password:
+Retype new password:
+passwd: password updated successfully
+
+$ su -
+1234
+
+# vi /etc/ssh/sshd_config
+42번 줄 이동 yy p
+
+43 PermitRootLogin yes
+
+# systemctl restart ssh
+
+# exit
+
+$ exit
+
+$ vi ~/.ssh/config
+
+# aws ec2
+Host myu
+        Hostname 54.180.99.246
+        User root
+        IdentityFile ~/.ssh/moon.pem
+
+$ ssh ubuntu@myu
+
+$ su -
+
+# vi .ssh/authorized_keys
+ssh-rsa 앞부분 삭제
+
+# exit
+
+$ exit
+
+$ ssh myu
+
+# cat > .exrc
+set nu ai sm
+^d (Ctrl - d)
+
+# cat .exrc
+
+# vi ~/.bashrc
+
+alias c='clear'
+alias h='history'
+alias df='df -h'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ls='ls -aCF --color=auto'
+alias ll='ls -alF --color=auto'
+
+export PS1='[\[\e[1;31m\]\u\[\e[m\]@\e[1;32m\]\h\[\e[m\] \[\e[1;36m\]\w\[\e[m\]]\$ '
+
+https://github.com/impelfin -> UNIX
+.bashrc
+101~110
+
+# source ~/.bashrc
+
+# cp .bashrc /etc/skel/
+
+# cp .exrc /etc/skel/
+
+# su - ubuntu
+
+$ cp /etc/skel/.bashrc .
+
+$ cp /etc/skel/.exrc .
+
+$ source .bashrc
+
+
