@@ -1,6 +1,4 @@
 Github for Jira setup
 
-jira automation test
-
-jira start done
+jira commit done
 
