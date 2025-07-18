@@ -3,7 +3,4 @@ Github for Jira setup
 jira automation test
 
 jira start done
-automation
-automation
-FIN-10
 
